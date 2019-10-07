@@ -60,8 +60,8 @@
 		</body>
 	</worldbody>
 	<actuator>
-		<motor name="motortx" ctrllimited="true" ctrlrange="-150 150" forcelimited="true" forcerange="-150 150" joint="tx"></motor>
-		<motor name="motorty" ctrllimited="true" ctrlrange="-150 150" forcelimited="true" forcerange="-150 150" joint="ty"></motor>
+		<motor name="motortx" ctrllimited="true" ctrlrange="-200 200" forcelimited="true" forcerange="-200 200" joint="tx"></motor>
+		<motor name="motorty" ctrllimited="true" ctrlrange="-200 200" forcelimited="true" forcerange="-200 200" joint="ty"></motor>
 		<motor name="motorrz" ctrllimited="true" ctrlrange="-150 150" forcelimited="true" forcerange="-100 100" joint="rz"></motor>
 	</actuator>
 </mujoco>

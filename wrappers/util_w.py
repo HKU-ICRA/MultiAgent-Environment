@@ -48,6 +48,7 @@ class DiscretizeActionWrapper(gym.ActionWrapper):
 
     def action(self, action):
         action = deepcopy(action)
+
         ac = action[self.action_key]
 
         # helper variables for indexing the discrete-to-continuous action map

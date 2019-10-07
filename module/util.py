@@ -77,7 +77,7 @@ def opposite_placement(grid, obj_size, metadata, random_state):
 
 
 def custom_placement(grid, obj_size, metadata, random_state):
-    return np.array([10, 10])
+    return np.array([3, 3])
 
 
 def close_to_other_object_placement(object_type, object_index, radius_key):

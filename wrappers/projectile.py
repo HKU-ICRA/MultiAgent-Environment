@@ -89,7 +89,7 @@ class ProjectileWrapper(gym.Wrapper):
         self.agent_armors += [sim.model.geom_name2id(f"agent{i}:armor4") for i in range(self.n_agents)]
 
         self.agent_armors = np.array(self.agent_armors)
- 
+
         return obs
 
     def shoot_projectile(self, obs, projectile_rew):
@@ -140,14 +140,11 @@ class ProjectileWrapper(gym.Wrapper):
         agent_bodies_id = np.array([sim.model.body_name2id(f"agent{i}:chassis") for i in range(self.n_agents)])
         #agent_bodies = [sim.data.body_xpos[agent_bodies_id[0]], sim.data.body_xpos[agent_bodies_id[1]]]
         agent_bodies = [sim.data.body_xpos[agent_bodies_id[0]]]
-        if np.linalg.norm(agent_bodies[0] - np.array([1.5, 1.5, 0.15])) <= 0.1:
-            projectile_rew[0] += 1000000
-            done = True
-        elif np.linalg.norm(agent_bodies[0] - np.array([1.5, 1.5, 0.15])) >= 2.0:
-            projectile_rew[0] += -500
+        if np.linalg.norm(agent_bodies[0] - np.array([1.5, 1.5, 0.15])) <= 0.2:
+            projectile_rew[0] += 10000
             done = True
         else:
-            projectile_rew[0] += -np.linalg.norm(agent_bodies[0] - np.array([1.5, 1.5, 0.15]))
+            projectile_rew[0] += -np.linalg.norm(agent_bodies[0] - np.array([3.5, 3.5, 0.15]))
         #projectile_rew[1] += -np.linalg.norm(agent_bodies[1] - np.array([1.5, 1.5, 0.15]))
         #print(np.linalg.norm(agent_bodies[0] - np.array([1.5, 1.5, 0.15])))
         #print(self.metadata['agents_health'])

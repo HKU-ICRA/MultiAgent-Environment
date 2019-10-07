@@ -39,7 +39,7 @@ class Base(Env):
             deterministic_mode (bool): if True, seeds are incremented rather than randomly sampled.
     '''
     def __init__(self, horizon=250, n_substeps=5, n_agents=2, floor_size=6.,
-                 grid_size=30, action_lims=(-150.0, 150.0), deterministic_mode=False, meshdir="assets/stls", texturedir="assets/texture",
+                 grid_size=30, action_lims=(-200.0, 200.0), deterministic_mode=False, meshdir="assets/stls", texturedir="assets/texture",
                  env_no=1, **kwargs):
         super().__init__(get_sim=self._get_sim,
                          get_obs=self._get_obs,
@@ -108,13 +108,10 @@ class Base(Env):
         return sim
 
 
-def make_env(n_substeps=5, horizon=250, deterministic_mode=False, n_agents=1, env_no=1):
-    '''
-        This make_env function is not used anywhere; it exists to provide a simple, bare-bones
-            example of how to construct a multi-agent environment using the modules framework.
-    '''
+def make_env(n_substeps=3, horizon=250, deterministic_mode=False, n_agents=1, env_no=1):
+    
     env = Base(n_agents=n_agents, n_substeps=n_substeps, horizon=horizon,
-               floor_size=3, grid_size=5, deterministic_mode=deterministic_mode, env_no=env_no)
+               floor_size=10, grid_size=50, deterministic_mode=deterministic_mode, env_no=env_no)
     
     # Add Walls
     #env.add_module(RandomWalls(grid_size=5, num_rooms=2, min_room_size=5, door_size=5, low_outside_walls=True, outside_wall_rgba="1 1 1 0.1"))
